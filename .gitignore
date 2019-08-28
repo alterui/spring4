@@ -19,6 +19,10 @@ gitKey.pub
 .DS_Store
 
 # setting folders #
+.mvn
+mvnw
+mvnw.cmd
+HELP.md
 .settings/
 .svn/
 .bin/
@@ -28,3 +32,8 @@ build/
 .idea/
 .out/
 /bin
+
+/target/
+/.classpath
+/.project
+/.settings/
