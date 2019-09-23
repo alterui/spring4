@@ -1,6 +1,8 @@
 package com.oyo.exe;
 
+import com.oyo.car.GetBMWCat;
 import com.oyo.car.GetCar;
+import com.oyo.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -9,8 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class Facade implements Client {
 
-    @Autowired
-    GetCar getCar;
+    GetCar getCar = new GetBMWCat();
 
     @Override
     public void getExe() {
@@ -21,8 +22,15 @@ public class Facade implements Client {
         Facade facade = new Facade();
         try {
             facade.getExe();
+        } catch (ServiceException e) {
+            System.out.println("11111111");
+            System.out.println(e.getCode()+e.getMsg());
         } catch (RuntimeException e) {
+
+            System.out.println("a");
             System.out.println(e);
+        } catch (Exception e) {
+            System.out.println("3333");
         }
     }
 }
