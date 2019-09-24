@@ -1,8 +1,6 @@
 package com.oyo.exception;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 /**
  * @author liurui
@@ -12,8 +10,14 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class ServiceException extends RuntimeException {
+
     private String code;
+
+    @NonNull
     private String msg;
+
+    private final  String value;
 
 }

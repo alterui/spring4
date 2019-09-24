@@ -18,7 +18,8 @@ public class GetBMWCat implements GetCar {
             int c = a+b;
            // ServiceException serviceException = ServiceException.builder().msg("asdasd").build();
         } catch (NullPointerException e) {
-            throw ServiceException.builder().msg("json串不能为空").build();
+            //throw ServiceException.builder().msg("json串不能为空").build();
+            throw new ServiceException("json串不能为空","s");
         }
     }
 }
