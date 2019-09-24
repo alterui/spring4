@@ -1,7 +1,6 @@
 package com.oyo.demo0924;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 
 /**
@@ -18,5 +17,33 @@ public enum AutoReviewStatusEnum {
     ;
 
     private final Integer code;
-    private final String name;
+    private final String desc;
+
+    public static String getNameByCode(Integer code) {
+        for (AutoReviewStatusEnum statusEnum : values()) {
+            if (statusEnum.getCode().equals(code)) {
+                return statusEnum.getDesc();
+            }
+        }
+
+        return null;
+    }
+
+    public static AutoReviewStatusEnum parse(String name) {
+        for (AutoReviewStatusEnum statusEnum : values()) {
+            if (statusEnum.name().equals(name)) {
+                return statusEnum;
+            }
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        String nameByCode = getNameByCode(1);
+        System.out.println(nameByCode);
+
+
+        AutoReviewStatusEnum review = parse("TO_REVIEW");
+        System.out.println(review.desc);
+    }
 }
