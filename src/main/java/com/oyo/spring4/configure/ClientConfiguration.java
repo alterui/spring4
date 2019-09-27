@@ -13,11 +13,12 @@ public class ClientConfiguration {
 
     @Bean
     public Student getStudent() {
-        return new Student("小明","22");
+        return new Student("","22");
     }
 
     @Bean
     public Student getStudents() {
-        return new Student("小王", "23");
+
+        return new Student("", "23");
     }
 }
