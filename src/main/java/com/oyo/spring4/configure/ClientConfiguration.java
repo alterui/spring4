@@ -8,17 +8,17 @@ import org.springframework.context.annotation.Configuration;
  * @author liurui
  * @date 2019/9/3 20:58
  */
-@Configuration
-public class ClientConfiguration {
-
-    @Bean
-    public Student getStudent() {
-        return new Student("","22");
-    }
-
-    @Bean
-    public Student getStudents() {
-
-        return new Student("", "23");
-    }
-}
+//@Configuration
+//public class ClientConfiguration {
+//
+//    @Bean
+//    public Student getStudent() {
+//        return new Student("","22");
+//    }
+//
+//    @Bean
+//    public Student getStudents() {
+//
+//        return new Student("", "23");
+//    }
+//}
