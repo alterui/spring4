@@ -8,10 +8,25 @@ import java.util.List;
  * @date 2019/10/8 10:34
  */
 public class PagedResponse<T> implements Serializable {
+    /**
+     * 页数
+     */
     private int pageNum;
+    /**
+     * 每页大小
+     */
     private int pageSize;
+    /**
+     * 总页数
+     */
     private long totalPages;
+    /**
+     * 总条数
+     */
     private long totalCount;
+    /**
+     * 返回数据
+     */
     private List<T> result;
 
     public PagedResponse() {

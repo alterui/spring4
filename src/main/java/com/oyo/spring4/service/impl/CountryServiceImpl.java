@@ -27,7 +27,6 @@ public class CountryServiceImpl implements CountryService  {
     public PagedResponse<Country> selectAll(CountryReq req) {
 
         Page<Country> page = PageHelper.startPage(req.getPageNum(), req.getPageSize(), true);
-
         List<Country> countries = countryMapper.selectAll();
         PagedResponse<Country> response = new PagedResponse<>(req.getPageNum(), req.getPageSize(), page.getTotal());
         response.setResult(countries);
