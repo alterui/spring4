@@ -18,9 +18,13 @@ public class PagedResponse<T> implements Serializable {
     }
 
     public PagedResponse(Integer pageNum, Integer pageSize, Long totalCount) {
-        this.pageNum = pageNum;
-        this.pageSize = pageSize;
-        this.totalCount = totalCount;
+//        this.pageNum = pageNum;
+//        this.pageSize = pageSize;
+//        this.totalCount = totalCount;
+        this.setPageNum(pageNum);
+        this.setPageSize(pageSize);
+        this.setTotalCount(totalCount);
+
     }
 
     public Integer getPageNum() {
@@ -28,6 +32,7 @@ public class PagedResponse<T> implements Serializable {
     }
 
     public void setPageNum(Integer pageNum) {
+        System.out.println("setPageNum");
         this.pageNum = pageNum;
         if (pageNum < 1) {
             this.pageNum = 1;
@@ -71,5 +76,23 @@ public class PagedResponse<T> implements Serializable {
 
     public void setResult(List<T> result) {
         this.result = result;
+    }
+
+    @Override
+    public String toString() {
+        return "PagedResponse{" +
+                "pageNum=" + pageNum +
+                ", pageSize=" + pageSize +
+                ", totalPages=" + totalPages +
+                ", totalCount=" + totalCount +
+                ", result=" + result +
+                '}';
+    }
+
+    public void get() {
+        PagedResponse pagedResponse = new PagedResponse(-1, -1, -1L);
+        // pagedResponse.setPageNum(-1);
+
+        System.out.println(pagedResponse);
     }
 }

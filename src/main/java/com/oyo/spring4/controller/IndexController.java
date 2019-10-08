@@ -5,6 +5,7 @@ import com.oyo.demo1010.HotelPublishRequestDto;
 import com.oyo.spring4.application.CountNum;
 import com.oyo.spring4.integration.CompactDisc;
 import com.oyo.spring4.pojo.Student;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,6 +24,7 @@ import javax.validation.Valid;
  * @date 2019/8/28 18:27
  */
 @RestController
+@Slf4j
 public class IndexController {
 
     @Value("${name}")
@@ -45,6 +47,7 @@ public class IndexController {
     public String index(@Valid @RequestBody Student student, BindingResult result) {
         if (result.hasErrors()) {
             for (ObjectError error : result.getAllErrors()) {
+                log.info("IndexController#index param is={}", result);
                 return error.getDefaultMessage();
             }
         }
