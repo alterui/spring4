@@ -12,7 +12,7 @@ public class SysRole implements Serializable {
 
     private Long createBy;
 
-    private Date creteTime;
+    private Date createTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -48,12 +48,12 @@ public class SysRole implements Serializable {
         this.createBy = createBy;
     }
 
-    public Date getCreteTime() {
-        return creteTime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreteTime(Date creteTime) {
-        this.creteTime = creteTime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     @Override
@@ -66,7 +66,7 @@ public class SysRole implements Serializable {
         sb.append(", roleName=").append(roleName);
         sb.append(", enabled=").append(enabled);
         sb.append(", createBy=").append(createBy);
-        sb.append(", creteTime=").append(creteTime);
+        sb.append(", createTime=").append(createTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
