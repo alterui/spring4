@@ -2,6 +2,7 @@ package com.oyo.spring4.mapper;
 
 import com.oyo.spring4.po.SysRole;
 import com.oyo.spring4.po.SysUser;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,5 +23,5 @@ public interface SysUserMapper {
 
     int updateByPrimaryKey(SysUser record);
 
-    List<SysRole> selectRoleByUserId(Long userId);
+    List<SysRole> selectRoleByUserId(@Param("userId") Long userId, @Param("userName") String userName);
 }

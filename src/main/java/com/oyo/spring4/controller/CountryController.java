@@ -38,8 +38,8 @@ public class CountryController {
 
 
     @GetMapping("/getUser")
-    public List<SysRole> getUser(Long userId) {
-        List<SysRole> sysRoles = sysUserMapper.selectRoleByUserId(userId);
+    public List<SysRole> getUser(Long userId,String userName) {
+        List<SysRole> sysRoles = sysUserMapper.selectRoleByUserId(userId,userName);
         System.out.println(sysRoles);
         return sysRoles;
     }

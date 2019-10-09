@@ -6,7 +6,7 @@
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
     <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_time" jdbcType="TIME" property="createTime" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.oyo.spring4.po.SysUser">
     <result column="user_info" jdbcType="LONGVARCHAR" property="userInfo" />
@@ -133,7 +133,7 @@
   <select id="selectRoleByUserId" resultType="com.oyo.spring4.po.SysRole">
     select
         r.id,
-        r.role_name rolrName,
+        r.role_name roleName,
         r.enabled,
         r.create_by createBy,
         r.create_time createTime
@@ -141,5 +141,6 @@
         inner join sys_user_role ur on u.id = ur.user_id
         inner join sys_role r on ur.role_id = r.id
         where u.id = #{userId}
+        and u.user_name = #{userName}
   </select>
 </mapper>
