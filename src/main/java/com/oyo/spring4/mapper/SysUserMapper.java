@@ -24,4 +24,7 @@ public interface SysUserMapper {
     int updateByPrimaryKey(SysUser record);
 
     List<SysRole> selectRoleByUserId(@Param("userId") Long userId, @Param("userName") String userName);
+
+    List<SysUser> selectByUser(SysUser user);
+
 }

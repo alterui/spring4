@@ -143,4 +143,17 @@
         where u.id = #{userId}
         and u.user_name = #{userName}
   </select>
+
+  <select id="selectByUser" parameterType="com.oyo.spring4.po.SysUser" resultMap="ResultMapWithBLOBs">
+        select * from sys_user
+        where  1 = 1
+        <if test="userName !=null and userName != '' ">
+          and user_name like concat('%',#{userName},'%')
+        </if>
+
+        <if test="userEmail !=null and userEmail != ''">
+          and user_email = #{userEmail}
+        </if>
+
+  </select>
 </mapper>
