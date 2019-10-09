@@ -2,8 +2,10 @@ package com.oyo.spring4.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.oyo.spring4.controller.dto.CountryReq;
+import com.oyo.spring4.mapper.SysUserMapper;
 import com.oyo.spring4.model.Country;
 import com.oyo.spring4.pageHelp.PagedResponse;
+import com.oyo.spring4.po.SysRole;
 import com.oyo.spring4.service.CountryService;
 import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +26,22 @@ public class CountryController {
     @Autowired
     private CountryService countryService;
 
+    @Autowired
+    private SysUserMapper sysUserMapper;
+
 
     @GetMapping("/getCountry")
     public PagedResponse<Country> getCountry(CountryReq req) {
         PagedResponse<Country> response = countryService.selectAll(req);
         return response;
+    }
+
+
+    @GetMapping("/getUser")
+    public List<SysRole> getUser(Long userId) {
+        List<SysRole> sysRoles = sysUserMapper.selectRoleByUserId(userId);
+        System.out.println(sysRoles);
+        return sysRoles;
     }
 
 

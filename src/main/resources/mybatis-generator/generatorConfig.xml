@@ -65,76 +65,8 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <!--&lt;!&ndash; table可以有多个,每个数据库中的表都可以写一个table，tableName表示要匹配的数据库表,也可以在tableName属性中通过使用%通配符来匹配所有数据库表,只有匹配的表才会自动生成文件 &ndash;&gt;-->
-        <!--<table tableName="channel_info" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"-->
-        <!--enableSelectByExample="true" selectByExampleQueryId="true">-->
-        <!--<property name="useActualColumnNames" value="false"/>-->
-        <!--&lt;!&ndash; 数据库表主键 &ndash;&gt;-->
-        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
-        <!--</table>-->
-
-        <!--&lt;!&ndash; table可以有多个,每个数据库中的表都可以写一个table，tableName表示要匹配的数据库表,也可以在tableName属性中通过使用%通配符来匹配所有数据库表,只有匹配的表才会自动生成文件 &ndash;&gt;-->
-        <!--<table tableName="product_channel_ref" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"-->
-        <!--enableSelectByExample="true" selectByExampleQueryId="true">-->
-        <!--<property name="useActualColumnNames" value="false"/>-->
-        <!--&lt;!&ndash; 数据库表主键 &ndash;&gt;-->
-        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
-        <!--</table>-->
-        <!--&lt;!&ndash; table可以有多个,每个数据库中的表都可以写一个table，tableName表示要匹配的数据库表,也可以在tableName属性中通过使用%通配符来匹配所有数据库表,只有匹配的表才会自动生成文件 &ndash;&gt;-->
-        <!--<table tableName="product_hotel_ref" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"-->
-        <!--enableSelectByExample="true" selectByExampleQueryId="true">-->
-        <!--<property name="useActualColumnNames" value="false"/>-->
-        <!--&lt;!&ndash; 数据库表主键 &ndash;&gt;-->
-        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
-        <!--</table>-->
-        <!--&lt;!&ndash; table可以有多个,每个数据库中的表都可以写一个table，tableName表示要匹配的数据库表,也可以在tableName属性中通过使用%通配符来匹配所有数据库表,只有匹配的表才会自动生成文件 &ndash;&gt;-->
-        <!--<table tableName="sku_channel_ref" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"-->
-        <!--enableSelectByExample="true" selectByExampleQueryId="true">-->
-        <!--<property name="useActualColumnNames" value="false"/>-->
-        <!--&lt;!&ndash; 数据库表主键 &ndash;&gt;-->
-        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
-        <!--</table>-->
-        <!--&lt;!&ndash; table可以有多个,每个数据库中的表都可以写一个table，tableName表示要匹配的数据库表,也可以在tableName属性中通过使用%通配符来匹配所有数据库表,只有匹配的表才会自动生成文件 &ndash;&gt;-->
-        <!--<table tableName="sku_hotel_ref" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"-->
-        <!--enableSelectByExample="true" selectByExampleQueryId="true">-->
-        <!--<property name="useActualColumnNames" value="false"/>-->
-        <!--&lt;!&ndash; 数据库表主键 &ndash;&gt;-->
-        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
-        <!--</table>-->
-
-        <!--<table tableName="sale_info" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"-->
-        <!--enableSelectByExample="true" selectByExampleQueryId="true">-->
-        <!--<property name="useActualColumnNames" value="false"/>-->
-        <!--&lt;!&ndash; 数据库表主键 &ndash;&gt;-->
-        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
-        <!--</table>-->
-
-        <!--<table tableName="sale_info_detail" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"-->
-        <!--enableSelectByExample="true" selectByExampleQueryId="true">-->
-        <!--<property name="useActualColumnNames" value="false"/>-->
-        <!--&lt;!&ndash; 数据库表主键 &ndash;&gt;-->
-        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
-        <!--</table>-->
-
-
-        <!--<table tableName="sku_channel_info" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"-->
-        <!--enableSelectByExample="true" selectByExampleQueryId="true">-->
-        <!--<property name="useActualColumnNames" value="false"/>-->
-        <!--&lt;!&ndash; 数据库表主键 &ndash;&gt;-->
-        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
-        <!--</table>-->
-
-
         <!--table可以有多个,每个数据库中的表都可以写一个table，tableName表示要匹配的数据库表,也可以在tableName属性中通过使用%通配符来匹配所有数据库表,只有匹配的表才会自动生成文件 -->
-        <!--<table tableName="ota_hotel_batch_operate_records" domainObjectName="OtaHotelBatchOperateRecords" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-        <!--enableSelectByExample="false" selectByExampleQueryId="false">-->
-        <!--<property name="useActualColumnNames" value="false"/>-->
-        <!--&lt;!&ndash; 数据库表主键 &ndash;&gt;-->
-        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
-        <!--</table>-->
-
-        <!--table可以有多个,每个数据库中的表都可以写一个table，tableName表示要匹配的数据库表,也可以在tableName属性中通过使用%通配符来匹配所有数据库表,只有匹配的表才会自动生成文件 -->
-        <table tableName="sys_user_role" domainObjectName="SysUserRole" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+        <table tableName="sys_role" domainObjectName="SysRole" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false"/>
             <!-- 数据库表主键 -->
