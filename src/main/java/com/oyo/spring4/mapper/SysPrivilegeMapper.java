@@ -1,7 +1,9 @@
 package com.oyo.spring4.mapper;
 
 import com.oyo.spring4.po.SysPrivilege;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface SysPrivilegeMapper {
     int deleteByPrimaryKey(Long id);
 

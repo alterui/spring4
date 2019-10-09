@@ -26,7 +26,7 @@ public class CountryController {
 
 
     @GetMapping("/getCountry")
-    public PagedResponse<Country> getCountry(@RequestBody(required = false) CountryReq req) {
+    public PagedResponse<Country> getCountry(CountryReq req) {
         PagedResponse<Country> response = countryService.selectAll(req);
         return response;
     }
