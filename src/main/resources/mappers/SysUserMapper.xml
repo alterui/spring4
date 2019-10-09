@@ -6,7 +6,7 @@
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
     <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
-    <result column="create_time" jdbcType="TIME" property="createTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.oyo.spring4.po.SysUser">
     <result column="user_info" jdbcType="LONGVARCHAR" property="userInfo" />
