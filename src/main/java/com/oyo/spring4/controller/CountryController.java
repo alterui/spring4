@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -61,6 +62,23 @@ public class CountryController {
 
         DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         List<SysUser> sysUsers = sysUserMapper.selectByUser(user);
+
+        List<SysUserVO> sysUserList = new ArrayList<>();
+        sysUsers.forEach(sysUser -> {
+            SysUserVO sysUserVO = new SysUserVO();
+            BeanUtils.copyProperties(sysUser, sysUserVO);
+            sysUserVO.setCreateTime(simpleDateFormat.format(sysUser.getCreateTime()));
+            sysUserList.add(sysUserVO);
+        });
+
+        return sysUserList;
+    }
+
+    @GetMapping("/getUserByParams")
+    @ExceptionCatch
+    public List<SysUserVO> getUserByParams(SysUser user) {
+        DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        List<SysUser> sysUsers = sysUserMapper.selectByUsers(user);
 
         List<SysUserVO> sysUserList = Lists.newArrayList();
         sysUsers.forEach(sysUser -> {

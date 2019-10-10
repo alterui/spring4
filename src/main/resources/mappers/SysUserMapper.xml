@@ -157,6 +157,20 @@
 
   </select>
 
+  <select id="selectByUsers" resultMap="ResultMapWithBLOBs">
+    select * from sys_user
+    <where>
+      <if test="userName != null and userName != ''">
+        and user_name like concat('%',#{userName},'%')
+      </if>
+
+      <if test="userEmail != null and userEmail != ''">
+        and user_email = #{userEmail}
+      </if>
+    </where>
+
+  </select>
+
   <!--
 
     sql语句与下面代码类似
