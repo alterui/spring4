@@ -3,6 +3,7 @@ package com.oyo.spring4.controller;
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.oyo.spring4.SysUserVO;
+import com.oyo.spring4.aop.ExceptionCatch;
 import com.oyo.spring4.controller.dto.CountryReq;
 import com.oyo.spring4.mapper.SysUserMapper;
 import com.oyo.spring4.model.Country;
@@ -10,6 +11,7 @@ import com.oyo.spring4.pageHelp.PagedResponse;
 import com.oyo.spring4.po.SysRole;
 import com.oyo.spring4.po.SysUser;
 import com.oyo.spring4.service.CountryService;
+import lombok.extern.slf4j.Slf4j;
 import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,7 @@ import java.util.List;
  * @date 2019/10/8 15:57
  */
 @RestController
+@Slf4j
 public class CountryController {
 
     @Autowired
@@ -52,7 +55,10 @@ public class CountryController {
     }
 
     @GetMapping("/getUserByParam")
+    @ExceptionCatch
     public List<SysUserVO> getUserByParam(SysUser user) {
+        //log.info("CountryController.getUserByParam param is={}", JSON.toJSONString(user));
+
         DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         List<SysUser> sysUsers = sysUserMapper.selectByUser(user);
 
