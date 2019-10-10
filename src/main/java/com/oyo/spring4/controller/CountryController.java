@@ -73,15 +73,12 @@ public class CountryController {
         return sysUserList;
     }
 
-    public static void main(String[] args) {
-        Date date = new Date();
 
-        System.out.println(date);
-
-        DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String time = simpleDateFormat.format(date);
-        System.out.println(time);
+    @GetMapping("/selectByIdOrUserName")
+    @ExceptionCatch
+    public SysUser selectByIdOrUserName(SysUser user) {
+        SysUser sysUser = sysUserMapper.selectByIdOrUserName(user);
+        return sysUser;
     }
-
 
 }

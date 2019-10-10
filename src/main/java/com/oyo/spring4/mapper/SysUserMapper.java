@@ -27,4 +27,6 @@ public interface SysUserMapper {
 
     List<SysUser> selectByUser(SysUser user);
 
+    SysUser selectByIdOrUserName(SysUser sysUser);
+
 }
