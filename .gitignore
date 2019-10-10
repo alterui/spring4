@@ -1,39 +1,38 @@
-*.class
-*.iml
-*_dubbo.registry.properties*
-gitKey
-gitKey.pub
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# ide files #
-.classpath
-.project
-.mymetadata
-/.gradle/
-/.idea/
-/captures/
-.DS_Store
-
-# setting folders #
-.mvn
-mvnw
-mvnw.cmd
-HELP.md
-.settings/
-.svn/
-.bin/
-target/
-build/
-# META-INF
 .idea/
-.out/
-/bin
+target/
+*.iml
+*.ipr
+*.iws
+rdfa-scaffold.iml
+rdfa-scaffold.ipr
+rdfa-scaffold.iws
+target/
+!.mvn/wrapper/maven-wrapper.jar
 
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 /target/
-/.classpath
-/.project
-/.settings/
+/.mvn/
+/.idea/
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/.DS_Store
+.DS_Store
