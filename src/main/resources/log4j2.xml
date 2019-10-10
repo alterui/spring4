@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <!-- 请将此处的'infra.test-elk'替换为当前系统的appid -->
+        <Property name="APP_ID" value="utp-channel"/>
+        <!-- 日志文件存放路径 不要改变其内容 运维指定日志存放在该路径下 改动可能导致离线日志无法被搜集 -->
+        <Property name="LOG_PATH" value="/data/logs/${APP_ID}"/>
+        <Property name="LOG_PATTERN"
+                  value="%d{yyyy-MM-dd HH:mm:ss.SSS} %p %c [%t]: ${APP_ID} %msg %ex{separator(|)}%n"/>
+        <!-- 接入cat需要该配置traceId 默认设置为null CAT_SERVER_URL为cat后台地址 不需要改变其值-->
+        <Property name="CAT_SERVER_URL">http://cat3.infra.ahotels.tech/cat/r/m/</Property>
+        <Property name="traceId">null</Property>
+
+
+    </Properties>
+    <Appenders>
+        <console name="Console" target="SYSTEM_OUT">
+            <!--输出日志的格式 -->
+            <PatternLayout
+                    pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n" />
+        </console>
+        <RollingFile name="RollingFile" fileName="${LOG_PATH}/app.log"
+                     filePattern="${LOG_PATH}/app-%d{yyyyMMdd}-%i.log.gz">
+            <!-- 接入cat时，需要以下配置  -->
+            <JsonLayout complete="false" compact="true"
+                        stacktraceAsString="true" locationInfo="false"
+                        includeStacktrace="false" eventEol="true">
+                <KeyValuePair key="appid" value="${APP_ID}" />
+                <KeyValuePair key="traceId" value="$${ctx:traceId}" />
+                <KeyValuePair key="catUrl" value="${CAT_SERVER_URL}$${ctx:traceId}?domain=${APP_ID}" />
+            </JsonLayout>
+            <!--<PatternLayout>-->
+            <!--<Pattern>${LOG_PATTERN}</Pattern>-->
+            <!--</PatternLayout>-->
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="1GB"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_PATH}" maxDepth="1">
+                    <IfFileName glob="app-*.log.gz"/>
+                    <IfAccumulatedFileCount exceeds="14"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+        <RollingFile name="AdditionalRollingFile" fileName="${LOG_PATH}/original/app_additional.log"
+                     filePattern="${LOG_PATH}/original/app-%d{yyyyMMdd}-%i-additional.additional.gz">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="512MB"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_PATH}/original" maxDepth="1">
+                    <IfFileName glob="app-*.additional.gz"/>
+                    <IfAccumulatedFileCount exceeds="2"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <AsyncRoot level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+            <AppenderRef ref="AdditionalRollingFile"/>
+        </AsyncRoot>
+    </Loggers>
+</Configuration>

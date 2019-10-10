@@ -40,29 +40,6 @@
   </insert>
   <insert id="insertSelective" parameterType="com.oyo.spring4.po.SysUser">
     insert into sys_user
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="userName != null">
-        user_name,
-      </if>
-      <if test="userPassword != null">
-        user_password,
-      </if>
-      <if test="userEmail != null">
-        user_email,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="userInfo != null">
-        user_info,
-      </if>
-      <if test="headImg != null">
-        head_img,
-      </if>
-    </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=BIGINT},
