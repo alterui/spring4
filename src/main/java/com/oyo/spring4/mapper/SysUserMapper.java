@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface SysUserMapper {
@@ -34,6 +35,8 @@ public interface SysUserMapper {
     List<SysUser> selectByIdList(List<Long> idList);
 
     Integer insertList(List<SysUser> userList);
+
+    Integer updateByMap(Map<String, Object> map);
 
 
 
