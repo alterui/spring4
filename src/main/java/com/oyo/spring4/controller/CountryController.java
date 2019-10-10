@@ -1,6 +1,8 @@
 package com.oyo.spring4.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Lists;
+import com.oyo.spring4.SysUserVO;
 import com.oyo.spring4.controller.dto.CountryReq;
 import com.oyo.spring4.mapper.SysUserMapper;
 import com.oyo.spring4.model.Country;
@@ -9,6 +11,7 @@ import com.oyo.spring4.po.SysRole;
 import com.oyo.spring4.po.SysUser;
 import com.oyo.spring4.service.CountryService;
 import org.checkerframework.checker.units.qual.A;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,19 +45,26 @@ public class CountryController {
 
 
     @GetMapping("/getUser")
-    public List<SysRole> getUser(Long userId,String userName) {
-        List<SysRole> sysRoles = sysUserMapper.selectRoleByUserId(userId,userName);
+    public List<SysRole> getUser(Long userId, String userName) {
+        List<SysRole> sysRoles = sysUserMapper.selectRoleByUserId(userId, userName);
         System.out.println(sysRoles);
         return sysRoles;
     }
 
     @GetMapping("/getUserByParam")
-    public List<SysUser> getUserByParam(SysUser user) {
-        List<SysUser> sysRoles = sysUserMapper.selectByUser(user);
-        sysRoles.stream().map(e -> e.getCreateTime());
+    public List<SysUserVO> getUserByParam(SysUser user) {
+        DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        List<SysUser> sysUsers = sysUserMapper.selectByUser(user);
 
-        System.out.println(sysRoles);
-        return sysRoles;
+        List<SysUserVO> sysUserList = Lists.newArrayList();
+        sysUsers.forEach(sysUser -> {
+            SysUserVO sysUserVO = new SysUserVO();
+            BeanUtils.copyProperties(sysUser, sysUserVO);
+            sysUserVO.setCreateTime(simpleDateFormat.format(sysUser.getCreateTime()));
+            sysUserList.add(sysUserVO);
+        });
+
+        return sysUserList;
     }
 
     public static void main(String[] args) {
@@ -62,8 +72,8 @@ public class CountryController {
 
         System.out.println(date);
 
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String time = format.format(date);
+        DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time = simpleDateFormat.format(date);
         System.out.println(time);
     }
 
