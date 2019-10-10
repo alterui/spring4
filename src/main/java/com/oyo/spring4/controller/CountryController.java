@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author liurui
@@ -97,6 +98,43 @@ public class CountryController {
     public SysUser selectByIdOrUserName(SysUser user) {
         SysUser sysUser = sysUserMapper.selectByIdOrUserName(user);
         return sysUser;
+    }
+
+    @GetMapping("/selectByIdList")
+    @ExceptionCatch
+    public List<SysUser> selectByIdList() {
+        List<Long> list = Lists.newArrayList();
+        list.add(1L);
+        list.add(55L);
+        List<SysUser> sysUserList = sysUserMapper.selectByIdList(list);
+        return sysUserList;
+    }
+
+    @GetMapping("/insertUser")
+    public Integer insertUser() {
+
+        List<SysUser> list = Lists.newArrayList();
+
+        SysUser user1 = new SysUser();
+        user1.setUserPassword("1234");
+        user1.setUserInfo("test");
+        user1.setHeadImg(null);
+        user1.setUserName("alter");
+
+        SysUser user2 = new SysUser();
+        user2.setUserEmail("4r2342342@163.com");
+
+
+        SysUser user3 = new SysUser();
+        list.add(user3);
+        //list.add(user2);
+        Integer count = sysUserMapper.insertList(list);
+
+        if (Objects.isNull(count)) {
+            return 0;
+        }
+        System.out.println(count.intValue());
+        return count;
     }
 
 }
