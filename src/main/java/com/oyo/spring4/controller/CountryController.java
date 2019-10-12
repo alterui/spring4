@@ -17,7 +17,9 @@ import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,9 +43,21 @@ public class CountryController {
 
 
     @GetMapping("/getCountry")
-    public PagedResponse<Country> getCountry(CountryReq req) {
-        PagedResponse<Country> response = countryService.selectAll(req);
-        return response;
+    //@ExceptionCatch
+    public PagedResponse<Country> getCountry( CountryReq req) {
+        log.info("com.oyo.spring4.controller.CountryController.getCountry param={}", JSON.toJSONString(req));
+
+
+        try {
+            Assert.notNull(req.getPageNum(),"参数不能为空");
+            PagedResponse<Country> response = countryService.selectAll(req);
+            return response;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
     }
 
 
