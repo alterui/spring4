@@ -182,7 +182,7 @@
   <select id="selectByIdList" resultMap="ResultMapWithBLOBs">
     select * from sys_user
     where id in
-    <foreach collection="list" open="(" close=")" separator="," item="id" index="i">
+    <foreach collection="listId" open="(" close=")" separator="," item="id" index="i">
       #{id}
     </foreach>
   </select>

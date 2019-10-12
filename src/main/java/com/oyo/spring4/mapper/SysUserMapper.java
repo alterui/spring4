@@ -32,7 +32,7 @@ public interface SysUserMapper {
 
     SysUser selectByIdOrUserName(SysUser sysUser);
 
-    List<SysUser> selectByIdList(List<Long> idList);
+    List<SysUser> selectByIdList(@Param("listId") List<Long> idList);
 
     Integer insertList(List<SysUser> userList);
 
