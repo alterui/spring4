@@ -44,7 +44,7 @@ public class CountryController {
     private SysUserMapper sysUserMapper;
 
     @Autowired
-    @Qualifier("dog")
+    //@Qualifier("dog")
     private Animal animal;
 
 
