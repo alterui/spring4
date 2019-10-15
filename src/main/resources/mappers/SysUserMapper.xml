@@ -148,20 +148,6 @@
 
   </select>
 
-  <!--
-
-    sql语句与下面代码类似
-        int id = 3;
-        String name = "admin";
-
-        if (id == 3) {
-            System.out.println("111");
-        } else if (name.equals("admin")) {
-            System.out.println("22222");
-        } else {
-            System.out.println("333333333");
-        }
-  -->
   <select id="selectByIdOrUserName" resultMap="ResultMapWithBLOBs">
     select * from sys_user
     where 1 = 1

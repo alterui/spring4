@@ -15,9 +15,7 @@ public class ServiceException extends RuntimeException {
 
     private String code;
 
-    @NonNull
     private String msg;
 
-    private final  String value;
 
 }

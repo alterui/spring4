@@ -1,8 +1,15 @@
 package com.oyo.spring4.po;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class SysUser implements Serializable {
     private Long id;
 
