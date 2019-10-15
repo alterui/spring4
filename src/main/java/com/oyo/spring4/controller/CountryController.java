@@ -3,9 +3,9 @@ package com.oyo.spring4.controller;
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.oyo.demo1010.Animal;
 import com.oyo.spring4.SysUserVO;
 import com.oyo.spring4.aop.ExceptionCatch;
+import com.oyo.spring4.client.Animal;
 import com.oyo.spring4.controller.dto.CountryReq;
 import com.oyo.spring4.mapper.SysUserMapper;
 import com.oyo.spring4.model.Country;
@@ -17,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,7 +43,9 @@ public class CountryController {
     @Autowired
     private SysUserMapper sysUserMapper;
 
-
+    @Autowired
+    @Qualifier("dog")
+    private Animal animal;
 
 
     @GetMapping("/getCountry")
@@ -70,6 +73,15 @@ public class CountryController {
         System.out.println(sysRoles);
         return sysRoles;
     }
+
+
+
+    @GetMapping("/getAnimal")
+    public void Dog() {
+        animal.eat();
+    }
+
+
 
     @GetMapping("/getUserByParam")
     @ExceptionCatch
