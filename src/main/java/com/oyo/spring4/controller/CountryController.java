@@ -50,7 +50,7 @@ public class CountryController {
 
     @GetMapping("/getCountry")
     //@ExceptionCatch
-    public PagedResponse<Country> getCountry( CountryReq req) {
+    public PagedResponse<Country> getCountry(CountryReq req) {
         log.info("com.oyo.spring4.controller.CountryController.getCountry param={}", JSON.toJSONString(req));
 
 

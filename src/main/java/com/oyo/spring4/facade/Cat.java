@@ -1,10 +1,10 @@
 package com.oyo.spring4.facade;
 
-import com.oyo.spring4.client.Animal;
+import com.oyo.spring4.client.*;
 import org.springframework.stereotype.Service;
 
 /**
- * @author liurui
+ * @author
  * @date 2019/10/15 15:15
  */
 @Service
