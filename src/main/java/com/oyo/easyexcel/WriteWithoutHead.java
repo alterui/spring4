@@ -27,6 +27,7 @@ public class WriteWithoutHead extends AnalysisEventListener<DemoData> {
         if (list.size() >= BATCH_COUNT) {
             saveData();
             list.clear();
+
         }
     }
 
