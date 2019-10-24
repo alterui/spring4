@@ -27,14 +27,12 @@ public class WriteWithoutHead extends AnalysisEventListener<DemoData> {
         if (list.size() >= BATCH_COUNT) {
             saveData();
             list.clear();
-
         }
     }
 
     @Override
     public void doAfterAllAnalysed(AnalysisContext analysisContext) {
         saveData();
-        log.info("所有数据解析完成");
     }
 
     private void saveData() {
