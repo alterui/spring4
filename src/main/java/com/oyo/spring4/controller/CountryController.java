@@ -124,6 +124,13 @@ public class CountryController {
     @ExceptionCatch
     public SysUser selectByIdOrUserName(SysUser user) {
         SysUser sysUser = sysUserMapper.selectByIdOrUserName(user);
+        BeanUtils.copyProperties(sysUser, sysUser);
+
+        if (sysUser == null) {
+            sysUser = new SysUser();
+        }
+
+        System.out.println(sysUser.getCreateTime());
         return sysUser;
     }
 

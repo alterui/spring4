@@ -11,4 +11,5 @@ import org.omg.PortableInterceptor.INACTIVE;
 public class OperatorAndChannel {
     private Integer operatorType;
     private String channelId;
+    private String a;
 }
