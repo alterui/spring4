@@ -2,6 +2,7 @@ package com.oyo.demo1029;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author liurui
@@ -9,7 +10,8 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Student {
-    private int age;
+    private Integer age;
     private String name;
 }

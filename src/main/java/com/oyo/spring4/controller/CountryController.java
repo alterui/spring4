@@ -198,6 +198,17 @@ public class CountryController {
         return result;
     }
 
+    @PostMapping("/updateByPrimaryKeySelective")
+    public String update(@RequestBody List<Long> longList) {
+        StringBuilder stringBuilder = new StringBuilder();
+        longList.forEach(e -> {
+            stringBuilder.append(e);
+        });
+
+        return stringBuilder.toString();
+
+    }
+
 
 
 }
