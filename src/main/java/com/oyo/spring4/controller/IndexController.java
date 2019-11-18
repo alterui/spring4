@@ -1,22 +1,17 @@
 package com.oyo.spring4.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.oyo.demo1010.HotelPublishRequestDto;
+import com.oyo.demo.demo1010.HotelPublishRequestDto;
 import com.oyo.spring4.application.CountNum;
 import com.oyo.spring4.integration.CompactDisc;
 import com.oyo.spring4.pojo.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import javax.validation.Valid;
 
 /**

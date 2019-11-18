@@ -1,6 +1,6 @@
 package com.oyo.spring4.controller.dto;
 
-import com.oyo.demo1029.Student;
+import com.oyo.demo.demo1029.Student;
 
 /**
  * @author liurui
