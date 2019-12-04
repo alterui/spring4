@@ -28,6 +28,11 @@ public class CountryServiceImpl implements CountryService  {
 
         Page<Country> page = PageHelper.startPage(req.getPageNum(), req.getPageSize(), true);
         List<Country> countries = countryMapper.selectAll();
+
+        System.out.println("======="+countries.size()+"============"+page.getTotal());
+
+
+
         PagedResponse<Country> response = new PagedResponse<>(req.getPageNum(), req.getPageSize(), page.getTotal());
         response.setResult(countries);
         return response;
