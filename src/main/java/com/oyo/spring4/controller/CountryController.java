@@ -20,10 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -48,7 +45,7 @@ public class CountryController {
     private Animal animal;
 
 
-    @GetMapping("/getCountry")
+    @PostMapping("/getCountry")
     //@ExceptionCatch
     public PagedResponse<Country> getCountry(CountryReq req) {
         log.info("com.oyo.spring4.controller.CountryController.getCountry param={}", JSON.toJSONString(req));
@@ -67,13 +64,13 @@ public class CountryController {
     }
 
 
-    @GetMapping("/getUser")
-    public String getUser(Long userId, String userName) {
-//        List<SysRole> sysRoles = sysUserMapper.selectRoleByUserId(userId, userName);
-//        System.out.println(sysRoles);
-//        return sysRoles;
+    @GetMapping(value = "/getUser/userId/{userId}/username/{userName}")
+    public List<SysRole> getUser(@PathVariable Long userId,@PathVariable String userName) {
         System.out.println(userId+userName);
-        return userName+userId;
+        List<SysRole> sysRoles = sysUserMapper.selectRoleByUserId(userId, userName);
+        System.out.println(sysRoles);
+        return sysRoles;
+
     }
 
 
