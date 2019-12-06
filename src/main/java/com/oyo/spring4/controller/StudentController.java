@@ -58,11 +58,17 @@ public class StudentController {
 
     }
 
+    /**
+     * 使用@PostConstruct注解会在Servlet初始化的时候执行
+     */
     @PostConstruct
     public void init1() {
         System.out.println("init方法执行了" + new Date());
     }
 
+    /**
+     * 使用@PreDestroy注解会在servlet销毁后执行
+     */
     @PreDestroy
     public void destroy2() {
         System.out.println("destroy方法执行了" + new Date());
