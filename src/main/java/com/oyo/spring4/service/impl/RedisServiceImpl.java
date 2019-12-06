@@ -45,7 +45,7 @@ public class RedisServiceImpl implements RedisService {
         try {
 
             if (!lock.tryLock(3, 10, TimeUnit.SECONDS)){
-                System.out.println("！！！！有人在操作，请勿进行其他操作");
+                System.out.println("！！！有人在操作，请勿进行其他操作");
             }
 
         } catch (InterruptedException e) {
