@@ -21,13 +21,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -57,7 +56,16 @@ public class StudentController {
         collect.forEach((e,h)-> System.out.println(e));
         return collect;
 
+    }
 
+    @PostConstruct
+    public void init1() {
+        System.out.println("init方法执行了" + new Date());
+    }
+
+    @PreDestroy
+    public void destroy2() {
+        System.out.println("destroy方法执行了" + new Date());
     }
 
 
