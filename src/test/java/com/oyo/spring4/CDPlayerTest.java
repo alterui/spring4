@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,10 +24,14 @@ public class CDPlayerTest {
     @Autowired
     private CompactDisc compactDisc;
 
+
+
     @Test
     public void test() {
         Assert.assertNotNull(compactDisc);
         compactDisc.play();
 
     }
+
+
 }
