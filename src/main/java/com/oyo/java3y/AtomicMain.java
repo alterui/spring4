@@ -5,6 +5,7 @@ import org.checkerframework.checker.units.qual.C;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author liurui
@@ -30,13 +31,13 @@ public class AtomicMain {
 }
 
 class Count {
-    private Integer count = 0;
+    private AtomicInteger count = new AtomicInteger(0);
 
     public Integer getCount() {
-        return count;
+        return count.get();
     }
 
-    public synchronized void increase() {
-        count++;
+    public  void increase() {
+        count.incrementAndGet();
     }
 }
