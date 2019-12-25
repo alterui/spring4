@@ -1,11 +1,11 @@
 package com.oyo.java3y;
 
-import com.sun.tools.internal.ws.wsdl.document.soap.SOAPUse;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.oyo.demo.demo1029.Student;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 /**
  * @author liurui
@@ -14,40 +14,17 @@ import java.util.Map;
 public class Application {
     public static void main(String[] args) {
 
+        ArrayList<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("bb");
+        list.add("bb");
+        list.add("ccc");
+        list.add("ccc");
+        list.add("ccc");
 
-        List<String> list = new ArrayList<>(1);
-       // System.out.println(list.size());
-        list.add("1");
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        list.add("1");
-        list.add(3, "22");
-
-        //list.forEach(System.out::println);
-
-        int[] arr = new int[10];
-        arr[7] = 1;
-        for (int value : arr) {
-           // System.out.println(value);
-        }
-
-
-
-
-        HashMap<String,String> map = new HashMap<>((1<<29)-3);
-        map.put("1","1");
-        System.out.println(map.size());
-
-
-
-
-
-
-
-
-
-
+        //Objects.hashCode()
 
     }
+
+
 }
