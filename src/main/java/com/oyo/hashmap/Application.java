@@ -1,9 +1,8 @@
 package com.oyo.hashmap;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import com.oyo.demo.demo1029.Student;
+
+import java.util.*;
 
 /**
  * @author liurui
@@ -16,9 +15,49 @@ public class Application {
         list.add(5);
         list.add(3);
 
-        Collections.sort(list);
+        Map hashMap = new HashMap();
 
-        list.forEach(System.out::println);
+      //  System.out.println(1%10);
 
+        int i = lengthOfLongestSubstring("pwwkew");
+        System.out.println(i);
+
+
+        String s = "";
+
+        s.length();
+
+        Map<Integer, Integer> treeMap = new TreeMap<>();
+        treeMap.put(2, 23);
+        treeMap.put(1, 2);
+        treeMap.put(3, 34);
+
+
+        treeMap.forEach((k,v)-> System.out.println("K:" + k + " V:" + v ));
+
+        int i0 = "b".compareTo("a");
+        System.out.println("长度："+i0);
+
+        Map<Student, String> map = new TreeMap<Student, String>((o1, o2) -> {
+            //主要条件
+            int num = o1.getAge() - o2.getAge();
+
+            //次要条件
+            int num2 = num == 0 ? o1.getName().compareTo(o2.getName()) : num;
+
+            return num2;
+        });
+
+
+    }
+
+    public static int lengthOfLongestSubstring(String s) {
+        String[] str =  s.split("");
+        Set set = new HashSet();
+        for(int i = 0 ;i<str.length;i++){
+            set.add(str[i]);
+        }
+
+        return set.size();
     }
 }
