@@ -3,7 +3,6 @@ package com.application;
 import com.oyo.demo.demo1029.Student;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -19,7 +18,7 @@ public class Application {
         list.add(new Student(1, "王五"));
         list.add(new Student(5, "刘六"));
 
-        list.sort(Comparator.comparingLong(Student::getAge));
+        list.sort((a, b) -> b.getAge() - a.getAge());
 
         list.forEach(System.out::println);
     }
