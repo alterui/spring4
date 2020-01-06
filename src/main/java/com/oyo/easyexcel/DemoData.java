@@ -6,7 +6,8 @@ import java.util.Date;
 
 @Data
 public class DemoData {
-    private String String;
+
+    private String age;
     private Date date;
     private Double doubleData;
 }
