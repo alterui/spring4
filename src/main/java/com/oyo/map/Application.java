@@ -9,7 +9,7 @@ import java.util.Map;
  * @date 2019/12/13 17:59
  */
 public class Application {
-    public static void main(String[] args) {
+    public static synchronized void main(String[] args) {
         //new Thread(()-> System.out.println("学习")).start();
         Map<String, String> hashMap = Maps.newHashMap();
     }
