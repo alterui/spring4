@@ -27,6 +27,7 @@ public class MyRunnable implements Runnable {
 
 
        thread1.interrupt();
+        Thread.yield();
        while (thread1.isInterrupted());
        System.out.println(thread1.isInterrupted());
 
