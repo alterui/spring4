@@ -1,5 +1,7 @@
 package com.lr.coding.newthread;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,10 +11,22 @@ import java.util.List;
  */
 public class LambdaApplication {
     public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+       /* String json = "{\n" +
+                "    \"age\",\n" +
+                "    \"name\":\"tom\"\n" +
+                "}";*/
 
-        int add = new LambdaApplication().add(list);
-        System.out.println(add);
+        Student student = new Student();
+        student.setAge(11);
+        student.setName("tom");
+
+        System.out.println(student.toString());
+
+
+        Student student1 = JSON.parseObject(JSON.toJSON(student).toString(), Student.class);
+
+
+        System.out.println(student1);
     }
 
     public int add(List<Integer> list) {
