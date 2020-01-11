@@ -16,7 +16,9 @@ public class Application {
 
     public static int i = 0;
 
-    Lock lock = new ReentrantLock();
+    // Lock lock = new ReentrantLock();
+    MyLock lock = new MyLock();
+
 
 
     public int getNextValue() {
