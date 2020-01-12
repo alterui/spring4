@@ -29,13 +29,17 @@ public class MyAQSLock implements Lock {
               getState()默认为0；
              */
             int state = getState();
+            Thread thread = Thread.currentThread();
             if (state == 0) {
                 //compare and set value
                 if (compareAndSetState(0, arg)) {
                     //把当前线程设置
-                    setExclusiveOwnerThread(Thread.currentThread());
+                    setExclusiveOwnerThread(thread);
                     return true;
                 }
+            } else if (getExclusiveOwnerThread()==thread){
+                setState(++state);
+                return true;
             }
             return false;
         }
