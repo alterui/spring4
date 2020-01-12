@@ -1,6 +1,7 @@
 package com.lr.coding.newthread;
 
 import lombok.Data;
+import lombok.NonNull;
 
 /**
  * @author liurui
