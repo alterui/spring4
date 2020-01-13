@@ -1,10 +1,12 @@
-package com.lr.concurrent.readfile;
+package com.lr.concurrent.countdownlatch;
 
 import com.google.common.collect.Lists;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * @author liurui
@@ -29,7 +31,7 @@ public class Application {
      * @param line
      * @param index
      */
-    private void calculator(String line, int index) {
+    private void calculator(String line, int index,CountDownLatch countDownLatch) {
         System.out.println(Thread.currentThread().getName()+" 计算开始....");
         String[] split = line.split(",");
 
@@ -38,7 +40,8 @@ public class Application {
             total += Integer.parseInt(num);
         }
         nums[index] = total;
-        System.out.println(Thread.currentThread().getName()+" 计算结束,line为："+line+"，计算结果为： "+total);
+        System.out.println(Thread.currentThread().getName() + " 计算结束,line为：" + line + "，计算结果为： " + total);
+        countDownLatch.countDown();
     }
 
     /**
@@ -63,6 +66,30 @@ public class Application {
         List<String> list = Lists.newArrayList();
 
 
+        List<String> lineList = readFile(list);
+
+        CountDownLatch countDownLatch = new CountDownLatch(lineList.size());
+
+
+        Application application = new Application(list.size());
+
+        for (int i = 0; i < list.size(); i++) {
+            int finalI = i;
+            new Thread(()->{
+                application.calculator(list.get(finalI), finalI,countDownLatch);
+            }).start();
+        }
+
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        application.getSum();
+    }
+
+    private static List<String> readFile(List<String> list) {
         String line;
         BufferedReader bufferedReader = null;
         try {
@@ -83,24 +110,6 @@ public class Application {
                 }
             }
         }
-
-
-        Application application = new Application(list.size());
-
-        for (int i = 0; i < list.size(); i++) {
-            int finalI = i;
-            new Thread(()->{
-                application.calculator(list.get(finalI), finalI);
-            }).start();
-        }
-
-        /**
-         * 等待所有线程执行结束
-         */
-        while (Thread.activeCount() != 1) {
-
-        }
-
-        application.getSum();
+        return list;
     }
 }
