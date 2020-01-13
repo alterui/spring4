@@ -1,0 +1,40 @@
+package com.lr.concurrent.cyclicbarrier;
+
+import org.apache.poi.ss.formula.functions.T;
+import org.checkerframework.checker.units.qual.A;
+
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
+
+/**
+ * @author liurui
+ * @date 2020/1/13 12:15
+ */
+public class Application {
+    public void meeting(CyclicBarrier cyclicBarrier) {
+        System.out.println(Thread.currentThread().getName() + " 抵达会议室，准备开会...");
+        try {
+            cyclicBarrier.await();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Application application = new Application();
+        CyclicBarrier barrier = new CyclicBarrier(10,()->{
+            System.out.println("所有人已经到达，准备开会");
+        });
+
+        for (int i = 0; i < 10; i++) {
+            new Thread(() -> {
+
+                application.meeting(barrier);
+            }).start();
+
+
+
+        }
+    }
+}
