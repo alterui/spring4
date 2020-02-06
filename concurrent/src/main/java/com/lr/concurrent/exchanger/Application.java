@@ -19,11 +19,11 @@ public class Application {
             e.printStackTrace();
         }
 
-        String result = "12345";
+        String result = "123452";
 
         try {
-            String exchange = exchanger.exchange(result);
-        } catch (InterruptedException e) {
+            exchanger.exchange(result);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

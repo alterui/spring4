@@ -83,22 +83,13 @@ public class CountryController {
 
 
     @GetMapping("/getUserByParam")
-    @ExceptionCatch
-    public List<SysUserVO> getUserByParam(SysUser user) {
-        //log.info("CountryController.getUserByParam param is={}", JSON.toJSONString(user));
 
-        DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        List<SysUser> sysUsers = sysUserMapper.selectByUser(user);
+    public List<SysUser> getUserByParam(SysUser user) {
 
-        List<SysUserVO> sysUserList = new ArrayList<>();
-        sysUsers.forEach(sysUser -> {
-            SysUserVO sysUserVO = new SysUserVO();
-            BeanUtils.copyProperties(sysUser, sysUserVO);
-            sysUserVO.setCreateTime(simpleDateFormat.format(sysUser.getCreateTime()));
-            sysUserList.add(sysUserVO);
-        });
+        List<SysUser> list = new ArrayList<>();
+        list.add(user);
+        return list;
 
-        return sysUserList;
     }
 
     @GetMapping("/getUserByParams")
