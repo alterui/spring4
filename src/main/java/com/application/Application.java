@@ -1,6 +1,7 @@
 package com.application;
 
 import com.oyo.demo.demo1029.Student;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,5 +22,10 @@ public class Application {
         list.sort((a, b) -> b.getAge() - a.getAge());
 
         list.forEach(System.out::println);
+    }
+
+    @Transactional
+    public void  get() {
+        System.out.println();
     }
 }

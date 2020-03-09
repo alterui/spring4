@@ -77,6 +77,10 @@ public class CountryController {
 
     @GetMapping("/getAnimal")
     public void Dog() {
+        System.out.println("=====================aaaaaaaaaaaaaaaaaaaaaaa===============");
+        int i = 9;
+        int m = i / 0;
+
         animal.eat();
     }
 

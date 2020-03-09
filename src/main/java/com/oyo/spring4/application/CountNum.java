@@ -2,6 +2,7 @@ package com.oyo.spring4.application;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author liurui
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CountNum {
    @Async
+   @Transactional
     public void getWords() throws InterruptedException {
             for (int i = 0; i < 2; i++) {
                 Thread.sleep(1000);
