@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
+@SpringBootApplication
 @EnableAsync
 //@MapperScan("com.oyo.spring4.mapper.CountryMapper")
 @MapperScan(value = {"com.oyo.spring4.mapper"})
