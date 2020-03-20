@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserService {
+    public int a ;
+
+
+
     public UserService() {
         System.out.println("构造方法被执行了");
     }
